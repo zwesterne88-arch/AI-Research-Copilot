@@ -1,0 +1,13 @@
+{
+  "name": "pdfjs-dist",
+  "version": "6.4.299",
+  "source": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-6.4.299.tgz",
+  "sha256_archive": "86269b40170eb41740ea05ad2102d71d33de4f122b34eb2f478be0ea7779c415",
+  "assets": {
+    "pdf.mjs": "dd13af821c9c3e1778653340d6539a1ba07bc56cba40073a4c727864cf0c232a",
+    "pdf.worker.mjs": "07ceb740d746e5d9012fcf9f27d5c7dea09f7d2f5e74f5c8109e5787551a2333",
+    "pdf_viewer.mjs": "2e112bf95cf962bcc9d3ace10d5bc74b3c5095245baa3eacd6bbbb9fc9a940a3",
+    "pdf_viewer.css": "1f3c7c3c692d4da2334d0386d2286ec040a37db8654e02b8704b11262bc9bf49",
+    "LICENSE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+  }
+}

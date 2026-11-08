@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical evaluation case index",
+  "type": "object",
+  "required": [
+    "case_id",
+    "test_type",
+    "source_scope",
+    "observation_id",
+    "observation_fingerprint",
+    "input_question_or_field",
+    "actual_model_output",
+    "original_evidence",
+    "expected_checkpoints",
+    "evaluation_dimensions",
+    "annotation_status",
+    "defect_ids",
+    "reproduce"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string"
+    },
+    "test_type": {
+      "enum": [
+        "qa",
+        "reading",
+        "comparison"
+      ]
+    },
+    "source_scope": {
+      "type": "array",
+      "minItems": 1
+    },
+    "actual_model_output": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "annotation_status": {
+      "const": "pending_human_review"
+    },
+    "expected_checkpoints": {
+      "type": "array",
+      "minItems": 1
+    }
+  }
+}

@@ -1,0 +1,5 @@
+pypdf==6.10.0
+pdfplumber==0.11.9
+streamlit==1.66.1
+alibabacloud-alimt20181012==1.5.2
+cryptography==50.0.2

@@ -1,0 +1,20 @@
+{
+  "protocol_version": "graded-citation-v1",
+  "prompt_version": "structured-reading-v1.2-citation-levels",
+  "planner_version": "reading-plan-v1.1-component-coverage",
+  "live_model_retested": false,
+  "scope": "new reading support checks; legacy QA binary support remains supported",
+  "citation_support_entry": {
+    "source_id": "one of this claim sources",
+    "supports": "boolean; true iff support_level is supported",
+    "support_level": [
+      "supported",
+      "partial",
+      "background_only",
+      "conflicting_or_unsupported",
+      "unverifiable"
+    ]
+  },
+  "acceptance": "Overall verdict supported plus every citation supported, exact claim/source ID coverage and consistent boolean. Others withheld; never human approved.",
+  "limit": "Does not parse free-text reason semantics or prove that a model chose the correct level."
+}

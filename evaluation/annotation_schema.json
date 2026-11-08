@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Explicit reviewer annotation; runtime enforces exact task binding and type-specific enums",
+  "type": "object",
+  "required": [
+    "task_id",
+    "status"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "pending_human_review",
+        "completed"
+      ]
+    },
+    "reviewer": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "unit_fingerprint": {
+      "type": "string"
+    }
+  },
+  "type_specific_labels": {
+    "fact_support": [
+      "contradicted",
+      "fully_supported",
+      "insufficient_evidence",
+      "partially_supported",
+      "unable_to_judge",
+      "unrelated"
+    ],
+    "field_completeness": [
+      "complete",
+      "missing",
+      "not_applicable",
+      "partial",
+      "uncertain"
+    ],
+    "qa_completeness": [
+      "complete",
+      "missing",
+      "not_applicable",
+      "partial",
+      "uncertain"
+    ],
+    "refusal_reasonableness": [
+      "appropriate",
+      "inappropriate",
+      "not_applicable",
+      "uncertain"
+    ],
+    "attribution": [
+      "correct",
+      "incorrect",
+      "not_applicable",
+      "uncertain"
+    ],
+    "comparison_juxtaposition": [
+      "correct",
+      "incorrect",
+      "not_applicable",
+      "uncertain"
+    ],
+    "numeric_accuracy": [
+      "correct",
+      "incorrect",
+      "not_applicable",
+      "uncertain"
+    ],
+    "retrieval": [
+      "no_answer_in_reviewed_scope",
+      "relevant_targets_confirmed",
+      "unable_to_judge"
+    ]
+  },
+  "notes": [
+    "Completed human annotations need reviewer_id, independent_of_generation=true, reviewed_at, rationale and exact task fingerprint.",
+    "The program checks declarations/binding, not the real identity of a reviewer."
+  ]
+}

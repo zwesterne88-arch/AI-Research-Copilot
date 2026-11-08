@@ -1,0 +1,754 @@
+{
+  "prompt_version": "structured-reading-v1.1-typed-attributes",
+  "planner_version": "reading-plan-v1.1-component-coverage",
+  "status": "offline clarification AFTER the 11-call validation; NOT live-model retested",
+  "contracts": {
+    "metadata": {
+      "module": "metadata",
+      "fields": {
+        "title": "标题",
+        "authors": "作者",
+        "publication_year": "发表年份",
+        "research_topics": "研究主题",
+        "paper_type": "论文类型"
+      },
+      "states": [
+        "reported",
+        "uncertain",
+        "not_applicable",
+        "not_found_in_checked_scope"
+      ],
+      "reason_codes": {
+        "supported_in_scope": "当前证据有支持；不代表穷尽全文",
+        "ambiguous": "来源或对应关系存在歧义",
+        "not_found": "已检查范围未确认到",
+        "not_applicable": "适用性判断有引用依据",
+        "not_extracted": "该模块尚未完成",
+        "support_withheld": "部分候选未通过支持检查"
+      },
+      "validation_types": [
+        "experimental",
+        "theoretical",
+        "simulation",
+        "case_study",
+        "qualitative",
+        "mixed",
+        "other",
+        "uncertain"
+      ],
+      "relation_types": {
+        "motivates": [
+          [
+            "prior_work_gaps",
+            "motivation"
+          ],
+          [
+            "author_limitations",
+            "future_work"
+          ]
+        ],
+        "frames": [
+          [
+            "motivation",
+            "research_questions"
+          ]
+        ],
+        "addressed_by": [
+          [
+            "research_questions",
+            "claimed_contributions"
+          ]
+        ],
+        "implemented_by": [
+          [
+            "claimed_contributions",
+            "method"
+          ]
+        ],
+        "validated_by": [
+          [
+            "method",
+            "validation"
+          ]
+        ],
+        "yields": [
+          [
+            "validation",
+            "findings"
+          ]
+        ],
+        "supports": [
+          [
+            "findings",
+            "conclusions"
+          ]
+        ]
+      },
+      "response_shape": {
+        "field_states": {
+          "<each required field>": {
+            "status": "reported|uncertain|not_applicable|not_found_in_checked_scope",
+            "reason_code": "enumerated code",
+            "rationale_fact_id": null
+          }
+        },
+        "facts": [
+          {
+            "fact_id": "f1",
+            "field": "one required field",
+            "text": "one atomic Chinese fact",
+            "kind": "author_statement|evidence_summary|analysis",
+            "purpose": "value|applicability",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ],
+            "attribute": null,
+            "validation_unit_id": null
+          }
+        ],
+        "validation_units": [
+          {
+            "unit_id": "u1",
+            "type": "theoretical",
+            "anchor_fact_id": "f1"
+          }
+        ],
+        "relations": [
+          {
+            "relation_id": "r1",
+            "from_fact_id": "earlier_module:f1 or local f1",
+            "to_fact_id": "f2",
+            "type": "motivates",
+            "text": "explicitly supported link",
+            "kind": "author_statement|analysis",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ]
+          }
+        ]
+      },
+      "attribute_shape": {
+        "name_raw": "one verbatim original name or null",
+        "value_raw": "one verbatim value or null",
+        "unit_raw": "verbatim original unit or null",
+        "definition_raw": "verbatim definition or null",
+        "role": "other"
+      },
+      "attribute_roles": [
+        "dataset",
+        "configuration",
+        "baseline",
+        "metric",
+        "assumption",
+        "proof_step",
+        "case_material",
+        "other"
+      ],
+      "limits": {
+        "facts_and_relations_total": 8,
+        "validation_units": 3,
+        "non_validation_module_units": "must be []"
+      }
+    },
+    "framing": {
+      "module": "framing",
+      "fields": {
+        "background": "研究背景",
+        "prior_work_gaps": "现有研究不足",
+        "motivation": "研究动机",
+        "research_questions": "核心研究问题"
+      },
+      "states": [
+        "reported",
+        "uncertain",
+        "not_applicable",
+        "not_found_in_checked_scope"
+      ],
+      "reason_codes": {
+        "supported_in_scope": "当前证据有支持；不代表穷尽全文",
+        "ambiguous": "来源或对应关系存在歧义",
+        "not_found": "已检查范围未确认到",
+        "not_applicable": "适用性判断有引用依据",
+        "not_extracted": "该模块尚未完成",
+        "support_withheld": "部分候选未通过支持检查"
+      },
+      "validation_types": [
+        "experimental",
+        "theoretical",
+        "simulation",
+        "case_study",
+        "qualitative",
+        "mixed",
+        "other",
+        "uncertain"
+      ],
+      "relation_types": {
+        "motivates": [
+          [
+            "prior_work_gaps",
+            "motivation"
+          ],
+          [
+            "author_limitations",
+            "future_work"
+          ]
+        ],
+        "frames": [
+          [
+            "motivation",
+            "research_questions"
+          ]
+        ],
+        "addressed_by": [
+          [
+            "research_questions",
+            "claimed_contributions"
+          ]
+        ],
+        "implemented_by": [
+          [
+            "claimed_contributions",
+            "method"
+          ]
+        ],
+        "validated_by": [
+          [
+            "method",
+            "validation"
+          ]
+        ],
+        "yields": [
+          [
+            "validation",
+            "findings"
+          ]
+        ],
+        "supports": [
+          [
+            "findings",
+            "conclusions"
+          ]
+        ]
+      },
+      "response_shape": {
+        "field_states": {
+          "<each required field>": {
+            "status": "reported|uncertain|not_applicable|not_found_in_checked_scope",
+            "reason_code": "enumerated code",
+            "rationale_fact_id": null
+          }
+        },
+        "facts": [
+          {
+            "fact_id": "f1",
+            "field": "one required field",
+            "text": "one atomic Chinese fact",
+            "kind": "author_statement|evidence_summary|analysis",
+            "purpose": "value|applicability",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ],
+            "attribute": null,
+            "validation_unit_id": null
+          }
+        ],
+        "validation_units": [
+          {
+            "unit_id": "u1",
+            "type": "theoretical",
+            "anchor_fact_id": "f1"
+          }
+        ],
+        "relations": [
+          {
+            "relation_id": "r1",
+            "from_fact_id": "earlier_module:f1 or local f1",
+            "to_fact_id": "f2",
+            "type": "motivates",
+            "text": "explicitly supported link",
+            "kind": "author_statement|analysis",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ]
+          }
+        ]
+      },
+      "attribute_shape": {
+        "name_raw": "one verbatim original name or null",
+        "value_raw": "one verbatim value or null",
+        "unit_raw": "verbatim original unit or null",
+        "definition_raw": "verbatim definition or null",
+        "role": "other"
+      },
+      "attribute_roles": [
+        "dataset",
+        "configuration",
+        "baseline",
+        "metric",
+        "assumption",
+        "proof_step",
+        "case_material",
+        "other"
+      ],
+      "limits": {
+        "facts_and_relations_total": 8,
+        "validation_units": 3,
+        "non_validation_module_units": "must be []"
+      }
+    },
+    "approach": {
+      "module": "approach",
+      "fields": {
+        "claimed_contributions": "作者声称的贡献",
+        "method": "技术方法与作用机制"
+      },
+      "states": [
+        "reported",
+        "uncertain",
+        "not_applicable",
+        "not_found_in_checked_scope"
+      ],
+      "reason_codes": {
+        "supported_in_scope": "当前证据有支持；不代表穷尽全文",
+        "ambiguous": "来源或对应关系存在歧义",
+        "not_found": "已检查范围未确认到",
+        "not_applicable": "适用性判断有引用依据",
+        "not_extracted": "该模块尚未完成",
+        "support_withheld": "部分候选未通过支持检查"
+      },
+      "validation_types": [
+        "experimental",
+        "theoretical",
+        "simulation",
+        "case_study",
+        "qualitative",
+        "mixed",
+        "other",
+        "uncertain"
+      ],
+      "relation_types": {
+        "motivates": [
+          [
+            "prior_work_gaps",
+            "motivation"
+          ],
+          [
+            "author_limitations",
+            "future_work"
+          ]
+        ],
+        "frames": [
+          [
+            "motivation",
+            "research_questions"
+          ]
+        ],
+        "addressed_by": [
+          [
+            "research_questions",
+            "claimed_contributions"
+          ]
+        ],
+        "implemented_by": [
+          [
+            "claimed_contributions",
+            "method"
+          ]
+        ],
+        "validated_by": [
+          [
+            "method",
+            "validation"
+          ]
+        ],
+        "yields": [
+          [
+            "validation",
+            "findings"
+          ]
+        ],
+        "supports": [
+          [
+            "findings",
+            "conclusions"
+          ]
+        ]
+      },
+      "response_shape": {
+        "field_states": {
+          "<each required field>": {
+            "status": "reported|uncertain|not_applicable|not_found_in_checked_scope",
+            "reason_code": "enumerated code",
+            "rationale_fact_id": null
+          }
+        },
+        "facts": [
+          {
+            "fact_id": "f1",
+            "field": "one required field",
+            "text": "one atomic Chinese fact",
+            "kind": "author_statement|evidence_summary|analysis",
+            "purpose": "value|applicability",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ],
+            "attribute": null,
+            "validation_unit_id": null
+          }
+        ],
+        "validation_units": [
+          {
+            "unit_id": "u1",
+            "type": "theoretical",
+            "anchor_fact_id": "f1"
+          }
+        ],
+        "relations": [
+          {
+            "relation_id": "r1",
+            "from_fact_id": "earlier_module:f1 or local f1",
+            "to_fact_id": "f2",
+            "type": "motivates",
+            "text": "explicitly supported link",
+            "kind": "author_statement|analysis",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ]
+          }
+        ]
+      },
+      "attribute_shape": {
+        "name_raw": "one verbatim original name or null",
+        "value_raw": "one verbatim value or null",
+        "unit_raw": "verbatim original unit or null",
+        "definition_raw": "verbatim definition or null",
+        "role": "other"
+      },
+      "attribute_roles": [
+        "dataset",
+        "configuration",
+        "baseline",
+        "metric",
+        "assumption",
+        "proof_step",
+        "case_material",
+        "other"
+      ],
+      "limits": {
+        "facts_and_relations_total": 8,
+        "validation_units": 3,
+        "non_validation_module_units": "must be []"
+      }
+    },
+    "validation": {
+      "module": "validation",
+      "fields": {
+        "validation": "研究验证方式"
+      },
+      "states": [
+        "reported",
+        "uncertain",
+        "not_applicable",
+        "not_found_in_checked_scope"
+      ],
+      "reason_codes": {
+        "supported_in_scope": "当前证据有支持；不代表穷尽全文",
+        "ambiguous": "来源或对应关系存在歧义",
+        "not_found": "已检查范围未确认到",
+        "not_applicable": "适用性判断有引用依据",
+        "not_extracted": "该模块尚未完成",
+        "support_withheld": "部分候选未通过支持检查"
+      },
+      "validation_types": [
+        "experimental",
+        "theoretical",
+        "simulation",
+        "case_study",
+        "qualitative",
+        "mixed",
+        "other",
+        "uncertain"
+      ],
+      "relation_types": {
+        "motivates": [
+          [
+            "prior_work_gaps",
+            "motivation"
+          ],
+          [
+            "author_limitations",
+            "future_work"
+          ]
+        ],
+        "frames": [
+          [
+            "motivation",
+            "research_questions"
+          ]
+        ],
+        "addressed_by": [
+          [
+            "research_questions",
+            "claimed_contributions"
+          ]
+        ],
+        "implemented_by": [
+          [
+            "claimed_contributions",
+            "method"
+          ]
+        ],
+        "validated_by": [
+          [
+            "method",
+            "validation"
+          ]
+        ],
+        "yields": [
+          [
+            "validation",
+            "findings"
+          ]
+        ],
+        "supports": [
+          [
+            "findings",
+            "conclusions"
+          ]
+        ]
+      },
+      "response_shape": {
+        "field_states": {
+          "<each required field>": {
+            "status": "reported|uncertain|not_applicable|not_found_in_checked_scope",
+            "reason_code": "enumerated code",
+            "rationale_fact_id": null
+          }
+        },
+        "facts": [
+          {
+            "fact_id": "f1",
+            "field": "one required field",
+            "text": "one atomic Chinese fact",
+            "kind": "author_statement|evidence_summary|analysis",
+            "purpose": "value|applicability",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ],
+            "attribute": null,
+            "validation_unit_id": null
+          }
+        ],
+        "validation_units": [
+          {
+            "unit_id": "u1",
+            "type": "theoretical",
+            "anchor_fact_id": "f1"
+          }
+        ],
+        "relations": [
+          {
+            "relation_id": "r1",
+            "from_fact_id": "earlier_module:f1 or local f1",
+            "to_fact_id": "f2",
+            "type": "motivates",
+            "text": "explicitly supported link",
+            "kind": "author_statement|analysis",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ]
+          }
+        ]
+      },
+      "attribute_shape": {
+        "name_raw": "one verbatim original name or null",
+        "value_raw": "one verbatim value or null",
+        "unit_raw": "verbatim original unit or null",
+        "definition_raw": "verbatim definition or null",
+        "role": "other"
+      },
+      "attribute_roles": [
+        "dataset",
+        "configuration",
+        "baseline",
+        "metric",
+        "assumption",
+        "proof_step",
+        "case_material",
+        "other"
+      ],
+      "limits": {
+        "facts_and_relations_total": 8,
+        "validation_units": 3,
+        "non_validation_module_units": "must be []"
+      }
+    },
+    "findings": {
+      "module": "findings",
+      "fields": {
+        "findings": "主要结果",
+        "conclusions": "研究结论",
+        "author_limitations": "作者明确的局限",
+        "future_work": "作者未来工作",
+        "reading_suggestions": "阅读分析建议（非作者结论）"
+      },
+      "states": [
+        "reported",
+        "uncertain",
+        "not_applicable",
+        "not_found_in_checked_scope"
+      ],
+      "reason_codes": {
+        "supported_in_scope": "当前证据有支持；不代表穷尽全文",
+        "ambiguous": "来源或对应关系存在歧义",
+        "not_found": "已检查范围未确认到",
+        "not_applicable": "适用性判断有引用依据",
+        "not_extracted": "该模块尚未完成",
+        "support_withheld": "部分候选未通过支持检查"
+      },
+      "validation_types": [
+        "experimental",
+        "theoretical",
+        "simulation",
+        "case_study",
+        "qualitative",
+        "mixed",
+        "other",
+        "uncertain"
+      ],
+      "relation_types": {
+        "motivates": [
+          [
+            "prior_work_gaps",
+            "motivation"
+          ],
+          [
+            "author_limitations",
+            "future_work"
+          ]
+        ],
+        "frames": [
+          [
+            "motivation",
+            "research_questions"
+          ]
+        ],
+        "addressed_by": [
+          [
+            "research_questions",
+            "claimed_contributions"
+          ]
+        ],
+        "implemented_by": [
+          [
+            "claimed_contributions",
+            "method"
+          ]
+        ],
+        "validated_by": [
+          [
+            "method",
+            "validation"
+          ]
+        ],
+        "yields": [
+          [
+            "validation",
+            "findings"
+          ]
+        ],
+        "supports": [
+          [
+            "findings",
+            "conclusions"
+          ]
+        ]
+      },
+      "response_shape": {
+        "field_states": {
+          "<each required field>": {
+            "status": "reported|uncertain|not_applicable|not_found_in_checked_scope",
+            "reason_code": "enumerated code",
+            "rationale_fact_id": null
+          }
+        },
+        "facts": [
+          {
+            "fact_id": "f1",
+            "field": "one required field",
+            "text": "one atomic Chinese fact",
+            "kind": "author_statement|evidence_summary|analysis",
+            "purpose": "value|applicability",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ],
+            "attribute": null,
+            "validation_unit_id": null
+          }
+        ],
+        "validation_units": [
+          {
+            "unit_id": "u1",
+            "type": "theoretical",
+            "anchor_fact_id": "f1"
+          }
+        ],
+        "relations": [
+          {
+            "relation_id": "r1",
+            "from_fact_id": "earlier_module:f1 or local f1",
+            "to_fact_id": "f2",
+            "type": "motivates",
+            "text": "explicitly supported link",
+            "kind": "author_statement|analysis",
+            "evidence": [
+              {
+                "source_id": "E1"
+              }
+            ]
+          }
+        ]
+      },
+      "attribute_shape": {
+        "name_raw": "one verbatim original name or null",
+        "value_raw": "one verbatim value or null",
+        "unit_raw": "verbatim original unit or null",
+        "definition_raw": "verbatim definition or null",
+        "role": "other"
+      },
+      "attribute_roles": [
+        "dataset",
+        "configuration",
+        "baseline",
+        "metric",
+        "assumption",
+        "proof_step",
+        "case_material",
+        "other"
+      ],
+      "limits": {
+        "facts_and_relations_total": 8,
+        "validation_units": 3,
+        "non_validation_module_units": "must be []"
+      }
+    }
+  }
+}

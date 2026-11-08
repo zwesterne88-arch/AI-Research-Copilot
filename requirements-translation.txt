@@ -1,0 +1,6 @@
+# Isolated local CPU translation runtime; do not install in the main app venv.
+ctranslate2==4.6.0
+sentencepiece==0.2.1
+pysbd==0.3.4
+setuptools==80.9.0
+pypdf==6.10.0

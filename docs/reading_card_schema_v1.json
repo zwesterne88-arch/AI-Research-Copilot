@@ -1,0 +1,1269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-research-copilot:reading:v1",
+  "title": "Saved structured research reading draft",
+  "description": "Shape only. Cross-references, immutable provenance, numeric checks and semantic support require the Python pipeline and human review.",
+  "type": "object",
+  "required": [
+    "card_id",
+    "paper_id",
+    "document_version_id",
+    "file_sha256",
+    "page_count",
+    "card_version",
+    "schema_version",
+    "model_id",
+    "prompt_version",
+    "extraction_scope",
+    "card_status",
+    "structured_content",
+    "evidence_references",
+    "created_at",
+    "updated_at",
+    "execution_mode",
+    "human_review"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "research-reading-v1"
+    },
+    "card_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "page_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "file_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "card_status": {
+      "enum": [
+        "processing",
+        "draft",
+        "failed"
+      ]
+    },
+    "human_review": {
+      "const": "not_performed"
+    },
+    "execution_mode": {
+      "enum": [
+        "test_double",
+        "real_api"
+      ]
+    },
+    "structured_content": {
+      "type": "object",
+      "required": [
+        "fields",
+        "facts",
+        "validation_units",
+        "relations"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "authors": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "publication_year": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "research_topics": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "paper_type": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "background": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "prior_work_gaps": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "motivation": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "research_questions": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "claimed_contributions": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "method": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "validation": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "findings": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "conclusions": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "author_limitations": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "future_work": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            },
+            "reading_suggestions": {
+              "type": "object",
+              "required": [
+                "status",
+                "reason_code",
+                "fact_ids",
+                "rationale_fact_id",
+                "checked_source_ids",
+                "coverage_complete"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "reported",
+                    "uncertain",
+                    "not_applicable",
+                    "not_found_in_checked_scope"
+                  ]
+                },
+                "reason_code": {
+                  "enum": [
+                    "supported_in_scope",
+                    "ambiguous",
+                    "not_found",
+                    "not_applicable",
+                    "not_extracted",
+                    "support_withheld"
+                  ]
+                },
+                "fact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "uniqueItems": true
+                },
+                "rationale_fact_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "checked_source_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "coverage_complete": {
+                  "const": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "title",
+            "authors",
+            "publication_year",
+            "research_topics",
+            "paper_type",
+            "background",
+            "prior_work_gaps",
+            "motivation",
+            "research_questions",
+            "claimed_contributions",
+            "method",
+            "validation",
+            "findings",
+            "conclusions",
+            "author_limitations",
+            "future_work",
+            "reading_suggestions"
+          ],
+          "additionalProperties": false
+        },
+        "facts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "fact_id",
+              "field",
+              "text",
+              "kind",
+              "purpose",
+              "attribute",
+              "validation_unit_id",
+              "association_status",
+              "evidence_ids",
+              "review_status"
+            ],
+            "properties": {
+              "fact_id": {
+                "type": "string"
+              },
+              "field": {
+                "enum": [
+                  "title",
+                  "authors",
+                  "publication_year",
+                  "research_topics",
+                  "paper_type",
+                  "background",
+                  "prior_work_gaps",
+                  "motivation",
+                  "research_questions",
+                  "claimed_contributions",
+                  "method",
+                  "validation",
+                  "findings",
+                  "conclusions",
+                  "author_limitations",
+                  "future_work",
+                  "reading_suggestions"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 400
+              },
+              "kind": {
+                "enum": [
+                  "author_statement",
+                  "evidence_summary",
+                  "analysis"
+                ]
+              },
+              "purpose": {
+                "enum": [
+                  "value",
+                  "applicability"
+                ]
+              },
+              "attribute": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "name_raw": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "value_raw": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "unit_raw": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "definition_raw": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "role": {
+                    "enum": [
+                      "dataset",
+                      "configuration",
+                      "baseline",
+                      "metric",
+                      "assumption",
+                      "proof_step",
+                      "case_material",
+                      "other"
+                    ]
+                  }
+                },
+                "required": [
+                  "name_raw",
+                  "value_raw",
+                  "unit_raw",
+                  "role",
+                  "definition_raw"
+                ],
+                "additionalProperties": false
+              },
+              "validation_unit_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "association_status": {
+                "enum": [
+                  "linked_by_model_not_human_verified",
+                  "not_established"
+                ]
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "maxItems": 3
+              },
+              "review_status": {
+                "const": "unreviewed"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "validation_units": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "unit_id",
+              "type",
+              "anchor_fact_id",
+              "review_status"
+            ],
+            "properties": {
+              "unit_id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "experimental",
+                  "theoretical",
+                  "simulation",
+                  "case_study",
+                  "qualitative",
+                  "mixed",
+                  "other",
+                  "uncertain"
+                ]
+              },
+              "anchor_fact_id": {
+                "type": "string"
+              },
+              "review_status": {
+                "const": "unreviewed"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "relation_id",
+              "from_fact_id",
+              "to_fact_id",
+              "type",
+              "text",
+              "kind",
+              "evidence_ids",
+              "review_status"
+            ],
+            "properties": {
+              "relation_id": {
+                "type": "string"
+              },
+              "from_fact_id": {
+                "type": "string"
+              },
+              "to_fact_id": {
+                "type": "string"
+              },
+              "type": {
+                "enum": [
+                  "motivates",
+                  "frames",
+                  "addressed_by",
+                  "implemented_by",
+                  "validated_by",
+                  "yields",
+                  "supports"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 400
+              },
+              "kind": {
+                "enum": [
+                  "author_statement",
+                  "analysis"
+                ]
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "maxItems": 3
+              },
+              "review_status": {
+                "const": "unreviewed"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "evidence_references": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "paper_id",
+          "document_version_id",
+          "file_sha256",
+          "pdf_page",
+          "chunk_id",
+          "quote",
+          "quote_char_start",
+          "quote_char_end",
+          "quote_found",
+          "locator_valid",
+          "semantic_support",
+          "review_status"
+        ]
+      }
+    }
+  }
+}

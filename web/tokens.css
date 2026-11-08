@@ -1,0 +1,22 @@
+:root {
+  color-scheme: light;
+  --primary:#2563eb; --on-primary:#fff; --primary-container:#eaf0ff; --on-primary-container:#1e40af;
+  --reading:#7c3aed; --reading-container:#f2ebff; --on-reading:#5b21b6;
+  --evidence:#0d9488; --evidence-container:#e4f5f2; --on-evidence:#0f766e;
+  --pending:#d97706; --pending-container:#fff4df; --on-pending:#92400e;
+  --error:#b42318; --error-container:#fff0ed;
+  --surface:#fff; --surface-low:#f6f8fc; --surface-container:#eef2f8; --surface-high:#e7ecf5;
+  --text:#1f2937; --text-secondary:#475569; --text-muted:#64748b; --outline:#dbe2ed; --outline-strong:#b8c5d8;
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px; --space-6:24px; --space-8:32px;
+  --radius-sm:8px; --radius-md:12px; --radius-lg:18px; --radius-xl:24px; --radius-full:999px;
+  --shadow-1:0 2px 6px #23376008; --shadow-2:0 10px 36px #18346414; --shadow-3:0 16px 60px #18346424;
+  --font-ui:"Segoe UI Variable","Segoe UI","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+  --font-source:Georgia,"Times New Roman",serif;
+  --type-headline:22px; --type-title:16px; --type-body:14px; --type-label:12px; --type-small:11px;
+  --nav:220px; --right:420px; --accent:var(--primary); --border:var(--outline);
+  --duration-fast:140ms; --duration-standard:200ms;
+  --line-body:1.8; --line-title:1.45; --line-label:1.5;
+  --state-hover:#2563eb0c; --state-selected:#2563eb14;
+  --reader-surround:#edf0f5; --reader-paper:#fff;
+  --type-display:28px; --weight-title:650; --weight-body:400;
+}
